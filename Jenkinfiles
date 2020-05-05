@@ -1,0 +1,17 @@
+  
+pipeline {
+    agent any
+
+    stages {
+        stage("Git Checkout") {
+            steps {
+                git credentialsId: 'b8797411-cbfd-4ba2-92f4-9d1dd54117e3', url: ' https://github.com/yogesh6717/FirstDevOps'
+            }
+        }
+        stage("Maven Build") {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+    }
+}
